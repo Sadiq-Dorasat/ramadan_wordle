@@ -750,7 +750,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Add URL to the game
-        emojiGrid += '\nPlay at: https://yourusername.github.io/ramadan-wordle/';
+        emojiGrid += '\nPlay at: https://sadiq-dorasat.github.io/ramadan_wordle/';
         
         // Change button text to show copying in progress
         shareButton.innerHTML = 'Copying...';

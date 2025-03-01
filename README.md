@@ -31,7 +31,7 @@ This game is built with vanilla JavaScript, HTML, and CSS. It features:
 
 ## Deployment
 
-The game is deployed at [insert your deployment URL here].
+The game is deployed at [https://sadiq-dorasat.github.io/ramadan_wordle/](https://sadiq-dorasat.github.io/ramadan_wordle/).
 
 ## Credits
 
