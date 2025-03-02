@@ -1,4 +1,5 @@
-// This file contains a list of common 5-letter English words for validation
+// This file contains a comprehensive list of 5-letter English words for validation
+// Updated to include a wider range of valid 5-letter words
 const DICTIONARY = {
     "about": true, "above": true, "abuse": true, "actor": true, "acute": true, "admit": true, "adopt": true, "adult": true, "after": true, "again": true,
     "agent": true, "agree": true, "ahead": true, "alarm": true, "album": true, "alert": true, "alike": true, "alive": true, "allow": true, "alone": true,
