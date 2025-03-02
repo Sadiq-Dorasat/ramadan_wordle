@@ -40,6 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (statsButton) {
             statsButton.addEventListener('click', showStatistics);
         }
+        
+        // Show a message when the word list is loaded
+        window.addEventListener('wordlist-loaded', function(e) {
+            if (e.detail && e.detail.count) {
+                showMessage(`Loaded ${e.detail.count} words for validation`);
+            }
+        });
     }
     
     function resetGameBoard() {
@@ -240,6 +247,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return true;
         }
         
+        // Check if it's in our comprehensive word list
+        if (typeof isInWordList === 'function' && isInWordList(word)) {
+            return true;
+        }
+        
         // Not a valid word
         return false;
     }
@@ -286,6 +298,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function checkWord(guess) {
         const row = document.querySelectorAll(`[data-row="${currentRow}"]`);
+        
+        // Apply animations to reveal the colors
+        applyWordColorsWithAnimation(guess, currentRow);
+    }
+    
+    // Function to apply colors with animation
+    function applyWordColorsWithAnimation(guess, rowIndex) {
+        const row = document.querySelectorAll(`[data-row="${rowIndex}"]`);
         const letterCounts = {};
         
         // Count letters in the current word
@@ -486,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Check the word to apply colors
                 if (guess.length === 5) {
-                    checkWord(guess);
+                    applyWordColors(guess, i);
                 }
             }
         }
@@ -524,6 +544,47 @@ document.addEventListener('DOMContentLoaded', () => {
                     showStatistics();
                 }, 1500);
             }, 1000);
+        }
+    }
+    
+    // New function to apply colors to a word without animations
+    function applyWordColors(guess, rowIndex) {
+        const row = document.querySelectorAll(`[data-row="${rowIndex}"]`);
+        const letterCounts = {};
+        
+        // Count letters in the current word
+        for (const letter of currentWord) {
+            letterCounts[letter] = (letterCounts[letter] || 0) + 1;
+        }
+        
+        // First pass: Mark correct letters
+        for (let i = 0; i < 5; i++) {
+            const tile = row[i];
+            const letter = tile.getAttribute('data-letter');
+            
+            if (letter === currentWord[i]) {
+                tile.classList.add('correct');
+                updateKeyboard(letter, 'correct');
+                letterCounts[letter]--;
+            }
+        }
+        
+        // Second pass: Mark present or absent letters
+        for (let i = 0; i < 5; i++) {
+            const tile = row[i];
+            const letter = tile.getAttribute('data-letter');
+            
+            // Skip already marked correct letters
+            if (letter === currentWord[i]) continue;
+            
+            if (currentWord.includes(letter) && letterCounts[letter] > 0) {
+                tile.classList.add('present');
+                updateKeyboard(letter, 'present');
+                letterCounts[letter]--;
+            } else {
+                tile.classList.add('absent');
+                updateKeyboard(letter, 'absent');
+            }
         }
     }
     
@@ -753,7 +814,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Add URL to the game
-        emojiGrid += '\nPlay at: https://sadiq-dorasat.github.io/ramadan_wordle/';
+        emojiGrid += '\nPlay at: https://ramadan-wordle.vercel.app/';
         
         // Change button text to show copying in progress
         shareButton.innerHTML = 'Copying...';

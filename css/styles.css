@@ -565,4 +565,25 @@ footer {
     height: 1px;
     background-color: #3a506b;
     margin: 20px 0;
+}
+
+/* Loading indicator */
+#loading-indicator {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px auto;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#loading-indicator p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+#word-count {
+    font-weight: bold;
+    color: #538d4e;
 } 
