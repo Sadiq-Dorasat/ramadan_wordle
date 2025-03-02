@@ -75,15 +75,21 @@ document.addEventListener('DOMContentLoaded', () => {
         currentWordObj = getWordForToday();
         currentWord = currentWordObj.word;
         
-        // If the game was played today, restore the state
-        if (lastPlayed === today) {
-            const savedState = JSON.parse(localStorage.getItem('gameState') || '{}');
-            if (savedState.guesses && savedState.guesses.length > 0) {
-                // Will restore the game state after board creation
-                setTimeout(() => {
-                    restoreGameState(savedState);
-                }, 100);
-            }
+        // Check if there's a saved game state
+        const savedState = JSON.parse(localStorage.getItem('gameState') || '{}');
+        
+        // If there's a saved state for today's word, restore it
+        if (savedState.currentWord === currentWord && savedState.guesses && savedState.guesses.length > 0) {
+            // Will restore the game state after board creation
+            setTimeout(() => {
+                restoreGameState(savedState);
+            }, 100);
+        } else if (lastPlayed === today && completedToday === 'true') {
+            // If the game was completed today but we don't have a matching saved state,
+            // this might be a different device or browser. Just show the statistics.
+            setTimeout(() => {
+                showStatistics();
+            }, 500);
         }
     }
     
@@ -218,6 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tile.setAttribute('data-letter', letter.toUpperCase());
             guessedWords[currentRow] = (guessedWords[currentRow] || '') + letter.toUpperCase();
             currentTile++;
+            
+            // Save game state after adding a letter
+            saveGameState();
         }
     }
     
@@ -228,6 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tile.textContent = '';
             tile.removeAttribute('data-letter');
             guessedWords[currentRow] = guessedWords[currentRow].slice(0, -1);
+            
+            // Save game state after deleting a letter
+            saveGameState();
         }
     }
     
