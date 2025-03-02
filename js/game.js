@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Clear localStorage to fix any issues with previous game state
-    localStorage.removeItem('gameState');
-    localStorage.removeItem('lastPlayed');
-    localStorage.removeItem('completedToday');
-    
     // Game state
     let currentRow = 0;
     let currentTile = 0;
@@ -73,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         currentWordObj = getWordForToday();
         currentWord = currentWordObj.word;
         
-        // If the game was completed today, check if we should show the completed state
-        if (lastPlayed === today && completedToday === 'true') {
+        // If the game was played today, restore the state
+        if (lastPlayed === today) {
             const savedState = JSON.parse(localStorage.getItem('gameState') || '{}');
             if (savedState.guesses && savedState.guesses.length > 0) {
                 // Will restore the game state after board creation
@@ -230,15 +225,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function isValidEnglishWord(word) {
+        // Check if word is 5 letters
+        if (word.length !== 5) {
+            return false;
+        }
+        
         // Check if it's in our Islamic word list
         if (isValidWord(word)) {
             return true;
         }
         
-        // Accept any 5-letter word as valid
-        // This is a simplified approach that accepts any 5-letter combination of letters
-        // In a production environment, you might want to use a more comprehensive dictionary API
-        return word.length === 5 && /^[a-zA-Z]{5}$/.test(word);
+        // Check if it's in our English dictionary
+        if (DICTIONARY[word.toLowerCase()]) {
+            return true;
+        }
+        
+        // Not a valid word
+        return false;
     }
     
     function submitWord() {
