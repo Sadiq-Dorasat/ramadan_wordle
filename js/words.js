@@ -139,6 +139,170 @@ const WORDS = [
     {
         word: "FIQH",
         definition: "Islamic jurisprudence or understanding of Islamic law."
+    },
+    {
+        word: "JIHAD",
+        definition: "A struggle or effort in the path of Allah."
+    },
+    {
+        word: "IHRAM",
+        definition: "The sacred state a Muslim enters for pilgrimage."
+    },
+    {
+        word: "IJMAA",
+        definition: "Consensus of Islamic scholars on a religious matter."
+    },
+    {
+        word: "IHSAN",
+        definition: "Excellence or perfection in faith and worship."
+    },
+    {
+        word: "KAFIR",
+        definition: "A non-believer or someone who rejects faith in Islam."
+    },
+    {
+        word: "NAFIL",
+        definition: "Optional or voluntary prayers."
+    },
+    {
+        word: "HUDUD",
+        definition: "Fixed punishments prescribed in Islamic law."
+    },
+    {
+        word: "SIYAM",
+        definition: "Fasting, especially during Ramadan."
+    },
+    {
+        word: "FITRA",
+        definition: "The natural state of purity and belief."
+    },
+    {
+        word: "FARAJ",
+        definition: "Relief or ease granted by Allah after hardship."
+    },
+    {
+        word: "HOURI",
+        definition: "The beautiful companions promised in Jannah."
+    },
+    {
+        word: "QISAS",
+        definition: "The Islamic law of retribution."
+    },
+    {
+        word: "TAWAF",
+        definition: "The act of circling the Kaaba during pilgrimage."
+    },
+    {
+        word: "BARAK",
+        definition: "Related to Barakah, meaning divine blessings."
+    },
+    {
+        word: "DAWAH",
+        definition: "The act of inviting others to Islam."
+    },
+    {
+        word: "FADHL",
+        definition: "Divine favor or virtue in Islamic context."
+    },
+    {
+        word: "ILHAM",
+        definition: "Divine inspiration or guidance from Allah."
+    },
+    {
+        word: "RIDHA",
+        definition: "Contentment and acceptance of Allah's will."
+    },
+    {
+        word: "WADUD",
+        definition: "One of Allah's names, meaning 'The Most Loving'."
+    },
+    {
+        word: "ZAHRA",
+        definition: "Meaning bright or radiant."
+    },
+    {
+        word: "SAJDA",
+        definition: "Prostration in prayer, an act of submission to Allah."
+    },
+    {
+        word: "AHKAM",
+        definition: "Islamic rulings or legal judgments."
+    },
+    {
+        word: "ARAFA",
+        definition: "Refers to the Day of Arafah during Hajj pilgrimage."
+    },
+    {
+        word: "ASWAD",
+        definition: "Meaning 'black', often referring to the Black Stone at the Kaaba."
+    },
+    {
+        word: "ATHAN",
+        definition: "Alternative spelling of Adhan, the Islamic call to prayer."
+    },
+    {
+        word: "BAYAH",
+        definition: "An oath of allegiance in Islamic governance."
+    },
+    {
+        word: "BATIN",
+        definition: "One of Allah's names, meaning 'The Hidden'."
+    },
+    {
+        word: "DHAAL",
+        definition: "Refers to someone who has gone astray or is misguided."
+    },
+    {
+        word: "DINAR",
+        definition: "A gold currency used in early Islamic history."
+    },
+    {
+        word: "FURQN",
+        definition: "A title of the Quran, meaning 'criterion'."
+    },
+    {
+        word: "HAKAM",
+        definition: "One of Allah's names, meaning 'The Judge'."
+    },
+    {
+        word: "HASIB",
+        definition: "One of Allah's names, meaning 'The Reckoner'."
+    },
+    {
+        word: "HAYAT",
+        definition: "Life in an Islamic context and understanding."
+    },
+    {
+        word: "IKRAM",
+        definition: "Honor or generosity in Islamic context."
+    },
+    {
+        word: "ILAHI",
+        definition: "Divine or belonging to Allah."
+    },
+    {
+        word: "KAMIL",
+        definition: "Perfect or complete in Islamic context."
+    },
+    {
+        word: "LISAN",
+        definition: "Tongue or language, as mentioned in the Quran."
+    },
+    {
+        word: "SHIFA",
+        definition: "Healing or cure, often referring to divine healing."
+    },
+    {
+        word: "SALAH",
+        definition: "Alternative spelling for prayer in Islam."
+    },
+    {
+        word: "ULAMA",
+        definition: "Islamic scholars or learned individuals."
+    },
+    {
+        word: "SABAR",
+        definition: "Alternative spelling of Sabr, meaning patience in Islam."
     }
 ];
 
